@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #060708;
-	--color-light: #e9e7e5;
-	--color-accent: #92b600;
+  --color-primary: #060708;
+  --color-light: #e9e7e5;
+  --color-accent: #0070b6;
+  --font-oxygen: "Oxygen"
 }
 
 :root {
-	--font-poppins: "Poppins", sans-serif;
-	--font-oxygen: "Oxygen", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-oxygen: "Oxygen", sans-serif;
 }
 
 body {
-	background-color: var(--color-primary);
-	color: var(--color-light);
-	font-family: var(--font-poppins);
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-family: var(--font-poppins);
 }
