@@ -1,19 +1,31 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #060708;
-  --color-light: #e9e7e5;
-  --color-accent: #0070b6;
-  --font-oxygen: "Oxygen"
+@theme  {
+	--color-primary: #060708;
+	--color-light: #e9e7e5;
+	--color-accent: #0070b6;
+	--font-oxygen: "Oxygen";
 }
 
 :root {
-  --font-poppins: "Poppins", sans-serif;
-  --font-oxygen: "Oxygen", sans-serif;
+	--font-poppins: "Poppins", sans-serif;
+	--font-oxygen: "Oxygen", sans-serif;
 }
 
 body {
-  background-color: var(--color-primary);
-  color: var(--color-light);
-  font-family: var(--font-poppins);
+	background-color: var(--color-primary);
+	color: var(--color-light);
+	font-family: var(--font-poppins);
+}
+
+.btn-primary {
+	@apply bg-light px-6 py-2 text-sm rounded-full text-primary flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-light hover:text-light transition-all duration-300 cursor-pointer;
+}
+
+.btn-secondary {
+	@apply bg-accent px-6 py-2 text-sm rounded-full text-light flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-accent hover:border-light transition-all duration-300 cursor-pointer;
+}
+
+.btn-tertiary {
+	@apply flex items-center gap-2 text-sm border px-5 py-2 rounded-full border-light/50 group-hover:border-light hover:bg-light hover:text-primary transition-all duration-300 cursor-pointer;
 }
