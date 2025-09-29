@@ -3,9 +3,11 @@ import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
 import Image from "next/image"
 import Specialties from "./components/Specialties"
+import FAQ from "./components/FAQ"
+import FinalCTA from "./components/FinalCTA"
 
 export default function Home() {
-	const positions = ["top-[10%] left-0 rotate-180"]
+	const positions = ["top-[10%] left-0 rotate-180", "bottom-[0%] right-0"]
 
 	return (
 		<div className="min-h-screen flex flex-col items-center relative justify-center gap-16">
@@ -25,6 +27,10 @@ export default function Home() {
 			<Specialties />
 			<hr className="w-full border-light/15 max-w-7xl" />
 			<Projects />
+			<hr className="w-full border-light/15 max-w-7xl" />
+			<FAQ />
+			<FinalCTA />
+			<hr className="w-full border-light/15 max-w-7xl" />
 		</div>
 	)
 }

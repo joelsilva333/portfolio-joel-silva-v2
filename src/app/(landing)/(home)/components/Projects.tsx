@@ -59,8 +59,8 @@ const projects: ProjectProps[] = [
 		category: "Marketplace",
 		description:
 			"Marketplace de multisserviços que conecta clientes a prestadores de serviços de forma rápida e segura.",
-		cover: "/images/projects/kuvica.jpg",
-		images: ["/images/projects/kuvica.jpg"],
+		cover: "/images/projects/kuvica.png",
+		images: ["/images/projects/kuvica.png"],
 		link: "#",
 	},
 ]
