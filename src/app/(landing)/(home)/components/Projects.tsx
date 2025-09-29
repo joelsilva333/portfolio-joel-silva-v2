@@ -1,7 +1,7 @@
 "use client"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Navigation } from "swiper/modules"
+import { Autoplay, EffectFade, Navigation } from "swiper/modules"
 import { MoveLeft, MoveRight, X } from "lucide-react"
 import { useState } from "react"
 import Image from "next/image"
@@ -9,6 +9,7 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import "swiper/css"
 import "swiper/css/navigation"
+import "swiper/css/effect-fade"
 
 const container = {
 	hidden: { opacity: 0, y: 100 },
@@ -33,18 +34,23 @@ interface ProjectProps {
 	title: string
 	category: string
 	description: string
-	image: string
+	cover: string
+	images: string[]
 	link: string
 }
 
-const projects = [
+const projects: ProjectProps[] = [
 	{
 		id: 1,
 		title: "Anônimo Angola",
 		category: "Rede Social",
 		description:
 			"Plataforma que permite partilhar histórias e desabafos de forma anônima, promovendo apoio e comunidade em Angola.",
-		image: "/images/projectos/anonimo-angola.png",
+		cover: "/images/projects/anonimo-angola.png",
+		images: [
+			"/images/projects/anonimo-angola.png",
+			"/images/projects/anonimo-angola-2.png",
+		],
 		link: "#",
 	},
 	{
@@ -53,7 +59,8 @@ const projects = [
 		category: "Marketplace",
 		description:
 			"Marketplace de multisserviços que conecta clientes a prestadores de serviços de forma rápida e segura.",
-		image: "/images/projectos/kuvica.jpg",
+		cover: "/images/projects/kuvica.jpg",
+		images: ["/images/projects/kuvica.jpg"],
 		link: "#",
 	},
 ]
@@ -73,21 +80,21 @@ export default function Projects() {
 			initial="hidden"
 			whileInView="show"
 			viewport={{ once: true, amount: 0.2 }}
-			className="w-full max-w-7xl "
+			className="w-full max-w-7xl"
 		>
 			<motion.div
 				variants={item}
-				className="flex flex-col items-center justify-around w-full rounded-2xl backdrop-blur-lg"
+				className="flex flex-col items-center justify-around w-full z-10"
 			>
 				<div className="w-full flex justify-between items-center">
-					<h1 className="text-4xl">{"Projectos".toUpperCase()}</h1>
+					<h1 className="text-4xl">{"Projectos e trabalhos".toUpperCase()}</h1>
 
-					<div className="flex items-center gap-4">
-						<button className="swiper-button-prev btn-primary">
+					<div className="flex items-center gap-4 relative max-w-40 w-full">
+						<button className="swiper-button-prev btn-navigation">
 							<MoveLeft className="w-5" />
 						</button>
 
-						<button className="swiper-button-next btn-primary">
+						<button className="swiper-button-next btn-navigation">
 							<MoveRight className="w-5" />
 						</button>
 					</div>
@@ -116,14 +123,14 @@ export default function Projects() {
 								slidesPerView: 3,
 							},
 						}}
-						className="w-full z-50 py-8"
+						className="w-full z-50 pt-8"
 					>
 						{projects.map((project) => (
 							<SwiperSlide key={project.id} className="py-12">
 								<div
 									className="max-w-sm w-full hover:scale-105 transition-all duration-300 h-124 rounded-2xl bg-cover bg-center flex flex-col items-start justify-end p-8 group gap-2"
 									style={{
-										backgroundImage: `linear-gradient(to top, #060708, #00000000), url(${project.image})`,
+										backgroundImage: `linear-gradient(to top, #060708, #00000000), url(${project.cover})`,
 										backgroundSize: "cover",
 									}}
 								>
@@ -172,15 +179,30 @@ export default function Projects() {
 								transition={{ duration: 0.5, delay: 0.2 }}
 								className="w-1/2 h-full"
 							>
-								<Image
-									src={selectedProject.image}
-									alt={selectedProject.title}
-									width={1920}
-									height={1080}
-									className="w-full h-full object-cover rounded-l-2xl"
-								/>
+								<Swiper
+									slidesPerView={1}
+									effect="fade"
+									autoplay={{
+										delay: 3000,
+										disableOnInteraction: false,
+									}}
+									speed={2000}
+									modules={[EffectFade, Autoplay]}
+									className="w-full h-full"
+								>
+									{selectedProject.images.map((image, index) => (
+										<SwiperSlide key={index} className="w-full h-full">
+											<Image
+												src={image}
+												alt={selectedProject.title}
+												width={1920}
+												height={1080}
+												className="w-full h-full object-cover rounded-l-2xl"
+											/>
+										</SwiperSlide>
+									))}
+								</Swiper>
 							</motion.div>
-
 							<motion.div
 								initial={{ opacity: 0, x: 50 }}
 								animate={{ opacity: 1, x: 0 }}

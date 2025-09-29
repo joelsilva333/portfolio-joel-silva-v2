@@ -27,7 +27,7 @@ export default function Hero() {
 
 	return (
 		<motion.div
-			className="w-full h-screen flex flex-col items-center justify-center text-light"
+			className="w-full h-screen flex flex-col items-center justify-center text-light z-10"
 			style={{
 				backgroundImage: `linear-gradient(to right, #060708CC, #00000000), url('/images/Me.png')`,
 				backgroundSize: "cover",

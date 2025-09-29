@@ -10,11 +10,11 @@ export default function Header() {
 		},
 		{
 			link: "#",
-			title: "Projectos",
+			title: "Especialidades",
 		},
 		{
 			link: "#",
-			title: "Playground",
+			title: "Projectos",
 		},
 		{
 			link: "#",

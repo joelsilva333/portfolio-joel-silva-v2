@@ -30,7 +30,7 @@ export default function AboutMe() {
 			initial="hidden"
 			whileInView="show"
 			viewport={{ once: true, amount: 0.2 }}
-			className="flex items-center justify-around gap-16 max-w-7xl w-full rounded-2xl backdrop-blur-lg"
+			className="flex items-center justify-around gap-16 max-w-7xl w-full rounded-2xl  z-10"
 		>
 			<motion.div variants={item} className="max-w-1/2">
 				<Image

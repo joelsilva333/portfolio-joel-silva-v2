@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme  {
+@theme {
 	--color-primary: #060708;
 	--color-light: #e9e7e5;
 	--color-accent: #0070b6;
@@ -18,6 +18,10 @@ body {
 	font-family: var(--font-poppins);
 }
 
+.btn-navigation {
+	@apply bg-light w-24 px-2 py-2 text-sm rounded-full text-primary flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-light hover:text-light transition-all duration-300 cursor-pointer;
+}
+
 .btn-primary {
 	@apply bg-light px-6 py-2 text-sm rounded-full text-primary flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-light hover:text-light transition-all duration-300 cursor-pointer;
 }
@@ -28,4 +32,23 @@ body {
 
 .btn-tertiary {
 	@apply flex items-center gap-2 text-sm border px-5 py-2 rounded-full border-light/50 group-hover:border-light hover:bg-light hover:text-primary transition-all duration-300 cursor-pointer;
+}
+
+.swiper-pagination-bullet {
+	background: #888 !important;
+	opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+	background: #0070b6 !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	color: #060708 !important;
+	width: 60px !important;
+	padding: 6px 2px !important;
+	&:hover {
+		color: #e9e7e5 !important;
+	}
 }
