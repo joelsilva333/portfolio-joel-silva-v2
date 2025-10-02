@@ -79,6 +79,21 @@ const projects: ProjectProps[] = [
     ],
     link: "#",
   },
+  {
+    id: 2,
+    title: "MOBO GO",
+    category: "Carteira Digital",
+    description:
+      "Aplicativo que digitaliza o pagamento de passagens em táxis coletivos (azuis e brancos) em Angola, permitindo que passageiros comprem tickets digitais e motoristas recebam diretamente em sua carteira digital.",
+    cover: "/images/projects/mobo-go.png",
+    images: [
+      "/images/projects/mobo-go.png",
+      "/images/projects/mobo-go-2.png",
+      "/images/projects/mobo-go-3.png",
+      "/images/projects/mobo-go-4.png",
+    ],
+    link: "#",
+  },
 ];
 
 export default function Projects() {
