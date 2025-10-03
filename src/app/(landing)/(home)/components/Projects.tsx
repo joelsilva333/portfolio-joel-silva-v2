@@ -52,15 +52,16 @@ const projects: ProjectProps[] = [
     category: "Rede Social",
     description:
       "Plataforma que permite partilhar histórias e desabafos de forma anônima, promovendo apoio e comunidade em Angola.",
-    cover: "/images/projects/anonimo-angola.png",
+    cover:
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola.png",
     images: [
-      "/images/projects/anonimo-angola.png",
-      "/images/projects/anonimo-angola-2.png",
-      "/images/projects/anonimo-angola.mp4",
-      "/images/projects/anonimo-angola-2.mp4",
-      "/images/projects/anonimo-angola-3.png",
-      "/images/projects/anonimo-angola-4.png",
-      "/images/projects/anonimo-angola-5.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-2.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola.mp4",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-2.mp4",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-3.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-4.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-5.png",
     ],
     link: "#",
   },
@@ -70,27 +71,30 @@ const projects: ProjectProps[] = [
     category: "Marketplace",
     description:
       "Marketplace de multisserviços que conecta clientes a prestadores de serviços de forma rápida e segura.",
-    cover: "/images/projects/kuvica.png",
+    cover:
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica.png",
     images: [
-      "/images/projects/kuvica.png",
-      "/images/projects/kuvica.mp4",
-      "/images/projects/kuvica-2.mp4",
-      "/images/projects/kuvica-3.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica.mp4",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-2.mp4",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-3.png",
     ],
     link: "#",
   },
   {
-    id: 2,
+    id: 3,
     title: "MOBO GO",
     category: "Carteira Digital",
     description:
       "Aplicativo que digitaliza o pagamento de passagens em táxis coletivos (azuis e brancos) em Angola, permitindo que passageiros comprem tickets digitais e motoristas recebam diretamente em sua carteira digital.",
-    cover: "/images/projects/mobo-go.png",
+    cover:
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go-2.png",
     images: [
-      "/images/projects/mobo-go.png",
-      "/images/projects/mobo-go-2.png",
-      "/images/projects/mobo-go-3.png",
-      "/images/projects/mobo-go-4.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go-2.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go.mp4",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go-3.png",
+      "https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go-4.png",
     ],
     link: "#",
   },
@@ -239,7 +243,7 @@ export default function Projects() {
                           autoPlay
                           loop
                           muted
-                          playsInline
+                          controls
                           className="w-full h-full object-contain rounded-l-2xl">
                           <source
                             src={media}
