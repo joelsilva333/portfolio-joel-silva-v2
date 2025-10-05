@@ -32,17 +32,18 @@ export default function FAQ() {
 
 	return (
 		<motion.section
-			className="w-full max-w-7xl flex flex-col gap-8 z-20"
+			className="w-full max-w-7xl flex flex-col gap-8 z-20 max-lg:p-5"
 			initial={{ opacity: 0, y: 40 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true }}
 			transition={{ duration: 0.6, ease: "easeOut" }}
 		>
 			<motion.h2
-				className="text-4xl text-center"
+				className="text-4xl font-semibold max-lg:text-3xl max-md:text-2xl text-center"
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				transition={{ delay: 0.2, duration: 0.5 }}
+				viewport={{ once: true }}
 			>
 				{"Perguntas Frequentes".toUpperCase()}
 			</motion.h2>
@@ -62,10 +63,11 @@ export default function FAQ() {
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.2 * index, duration: 0.5 }}
+							viewport={{ once: true }}
 						>
 							<summary className="flex justify-between items-center cursor-pointer list-none">
 								<span
-									className={`text-lg font-medium transition-colors ${
+									className={`text-lg max-lg:text-base font-medium transition-colors ${
 										isOpen ? "text-accent" : "text-foreground"
 									}`}
 								>
@@ -88,6 +90,7 @@ export default function FAQ() {
 										animate={{ opacity: 1, height: "auto" }}
 										exit={{ opacity: 0, height: 0 }}
 										transition={{ duration: 0.4, ease: "easeInOut" }}
+										viewport={{ once: true }}
 									>
 										{faq.answer}
 									</motion.p>

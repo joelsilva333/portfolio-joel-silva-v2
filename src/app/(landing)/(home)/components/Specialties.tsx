@@ -83,13 +83,16 @@ export default function Specialties() {
 		>
 			<motion.div
 				variants={item}
-				className="w-full flex justify-between items-center"
+				className="w-full flex justify-between max-lg:justify-center items-center"
 			>
-				<h1 className="text-4xl">{"ESPECIALIDADES"}</h1>
+				<h1 className="text-4xl font-semibold max-lg:text-3xl max-md:text-2xl">
+					{"ESPECIALIDADES"}
+				</h1>
 
 				<Link
-					href="/#contact"
-					className="btn-secondary w-fit flex items-center gap-2"
+					href="https://api.whatsapp.com/send?phone=244946506875&text=Olá!%20Quero%20um%20website%20para%20mim!"
+					target="_blank"
+					className="btn-secondary w-fit flex items-center gap-2 max-lg:hidden"
 				>
 					CONTACTAR-ME <MoveRight className="w-6" />
 				</Link>
@@ -109,7 +112,7 @@ export default function Specialties() {
 					}}
 					speed={1000}
 					breakpoints={{
-						320: {
+						0: {
 							spaceBetween: 10,
 							slidesPerView: 1,
 						},
@@ -121,14 +124,17 @@ export default function Specialties() {
 					className="w-full z-50 pt-8"
 				>
 					{specialties.map((speciality, index) => (
-						<SwiperSlide key={index} className="py-12">
+						<SwiperSlide
+							key={index}
+							className="py-12 max-lg:px-5 w-full flex justify-center items-center"
+						>
 							<motion.li
 								variants={item}
-								className="max-w-sm w-full flex flex-col h-70 items-center gap-5 justify-center px-8 py-5 text-center bg-light/5 hover:scale-105 duration-300 transition-all rounded-2xl backdrop-blur-md"
+								className="lg:max-w-sm w-full flex flex-col h-70 items-center gap-5 justify-center px-8 py-5 text-center bg-light/5 hover:scale-105 duration-300 transition-all rounded-2xl backdrop-blur-md"
 							>
 								<speciality.icon className="text-accent w-12 h-12" />
 								<div className="flex flex-col gap-2">
-									<h1 className="font-semibold text-lg">
+									<h1 className="font-semibold text-lg max-lg:text-base">
 										{speciality.title.toUpperCase()}
 									</h1>
 									<p className="text-sm text-light/70">
