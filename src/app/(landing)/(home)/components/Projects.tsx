@@ -38,6 +38,7 @@ interface ProjectProps {
 	cover: string
 	images: string[]
 	link: string
+	soonText?: string
 }
 
 const projects: ProjectProps[] = [
@@ -58,7 +59,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-4.png",
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-5.png",
 		],
-		link: "#",
+		link: "https://anonimo-angola.vercel.app",
 	},
 	{
 		id: 2,
@@ -74,7 +75,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-2.mp4",
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-3.png",
 		],
-		link: "#",
+		link: "HTTPs://kuvica.vercel.app",
 	},
 	{
 		id: 3,
@@ -92,6 +93,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/mobo-go-4.png",
 		],
 		link: "#",
+		soonText: "Em breve no Google Play e App Store",
 	},
 ]
 
@@ -322,12 +324,22 @@ export default function Projects() {
 									exit={{ opacity: 0, y: 20 }}
 									transition={{ duration: 0.5, delay: 0.5 }}
 								>
-									<Link
-										href={selectedProject.link}
-										className="btn-secondary mt-8 inline-flex items-center gap-2"
-									>
-										TESTAR PROJECTO <MoveRight className="w-4" />
-									</Link>
+									{selectedProject.link === "#" ? (
+										<button
+											disabled
+											className="btn-secondary mt-8 items-center gap-2 opacity-50"
+										>
+											{selectedProject.soonText}
+										</button>
+									) : (
+										<Link
+											href={selectedProject.link}
+											target="_blank"
+											className="btn-secondary mt-8 inline-flex items-center gap-2"
+										>
+											ABRIR PROJECTO <MoveRight className="w-4" />
+										</Link>
+									)}
 								</motion.div>
 							</motion.div>
 						</motion.div>
