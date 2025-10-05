@@ -109,6 +109,7 @@ export default function Projects() {
 			variants={container}
 			initial="hidden"
 			whileInView="show"
+			id="projects"
 			viewport={{ once: true, amount: 0.2 }}
 			className="w-full max-w-7xl"
 		>
@@ -229,10 +230,6 @@ export default function Projects() {
 								<Swiper
 									slidesPerView={1}
 									effect="fade"
-									autoplay={{
-										delay: 3000,
-										disableOnInteraction: false,
-									}}
 									navigation={{
 										nextEl: ".project-button-next",
 										prevEl: ".project-button-prev",
@@ -261,7 +258,6 @@ export default function Projects() {
 													autoPlay
 													loop
 													muted
-													controls
 													className="w-full h-full object-contain rounded-l-2xl"
 												>
 													<source

@@ -78,6 +78,7 @@ export default function Specialties() {
 			variants={container}
 			initial="hidden"
 			whileInView="show"
+			id="specialities"
 			viewport={{ once: true, amount: 0.2 }}
 			className="max-w-7xl w-full z-10"
 		>

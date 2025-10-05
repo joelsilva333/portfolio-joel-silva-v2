@@ -30,8 +30,13 @@ const faqs = [
 export default function FAQ() {
 	const [openIndex, setOpenIndex] = useState<number | null>(null)
 
+	const toggle = (index: number) => {
+		setOpenIndex(openIndex === index ? null : index)
+	}
+
 	return (
 		<motion.section
+			 id="faq"
 			className="w-full max-w-7xl flex flex-col gap-8 z-20 max-lg:p-5"
 			initial={{ opacity: 0, y: 40 }}
 			whileInView={{ opacity: 1, y: 0 }}
@@ -51,21 +56,20 @@ export default function FAQ() {
 			<div className="flex flex-col gap-6">
 				{faqs.map((faq, index) => {
 					const isOpen = openIndex === index
+
 					return (
-						<motion.details
+						<motion.div
 							key={index}
-							open={isOpen}
-							onClick={(e) => {
-								e.preventDefault()
-								setOpenIndex(isOpen ? null : index)
-							}}
-							className="flex flex-col gap-2 border-b border-light/20 pb-3"
+							className="border-b border-light/20 pb-3"
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.2 * index, duration: 0.5 }}
+							transition={{ delay: 0.15 * index, duration: 0.4 }}
 							viewport={{ once: true }}
 						>
-							<summary className="flex justify-between items-center cursor-pointer list-none">
+							<button
+								onClick={() => toggle(index)}
+								className="w-full flex justify-between items-center text-left cursor-pointer"
+							>
 								<span
 									className={`text-lg max-lg:text-base font-medium transition-colors ${
 										isOpen ? "text-accent" : "text-foreground"
@@ -76,27 +80,27 @@ export default function FAQ() {
 
 								<motion.div
 									animate={{ rotate: isOpen ? 0 : 180 }}
-									transition={{ duration: 0.4 }}
+									transition={{ duration: 0.3 }}
 								>
 									<ChevronUp className="w-5 h-5" />
 								</motion.div>
-							</summary>
+							</button>
 
 							<AnimatePresence initial={false}>
 								{isOpen && (
 									<motion.p
-										className="text-light/70"
+										key="content"
+										className="text-light/70 overflow-hidden"
 										initial={{ opacity: 0, height: 0 }}
 										animate={{ opacity: 1, height: "auto" }}
 										exit={{ opacity: 0, height: 0 }}
 										transition={{ duration: 0.4, ease: "easeInOut" }}
-										viewport={{ once: true }}
 									>
 										{faq.answer}
 									</motion.p>
 								)}
 							</AnimatePresence>
-						</motion.details>
+						</motion.div>
 					)
 				})}
 			</div>

@@ -21,6 +21,7 @@ export default function FinalCTA() {
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6 }}
+				viewport={{ once: true }}
 				className="max-w-lg w-full flex flex-col gap-2"
 			>
 				<h2 className="text-4xl font-semibold max-lg:text-3xl max-md:text-2xl max-lg:text-center">

@@ -30,6 +30,7 @@ export default function AboutMe() {
 			initial="hidden"
 			whileInView="show"
 			viewport={{ once: true, amount: 0.2 }}
+			id="about"
 			className="flex items-center justify-around gap-16 max-w-7xl w-full rounded-2xl z-10 max-lg:flex-col max-lg:gap-10 max-lg:px-6 max-lg:text-center"
 		>
 			<motion.div
