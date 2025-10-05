@@ -258,6 +258,11 @@ export default function Projects() {
 													autoPlay
 													loop
 													muted
+													playsInline
+													preload="auto"
+													controls={false}
+													disablePictureInPicture
+													controlsList="nodownload nofullscreen noremoteplayback"
 													className="w-full h-full object-contain rounded-l-2xl"
 												>
 													<source
