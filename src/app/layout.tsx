@@ -4,47 +4,36 @@ import "./globals.css";
 import Script from "next/script";
 
 const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 const oxygen = Oxygen({
-  variable: "--font-oxygen",
-  weight: ["400", "700"],
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-oxygen",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Joel Silva | Desenvolvedor Full Stack",
-    template: "%s | Joel Silva",
-  },
+  title: "Joel Silva | Desenvolvedor Full Stack",
   description:
     "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
-  keywords: [
-    "Joel Silva",
-    "Desenvolvedor Full Stack",
-    "Desenvolvedor Frontend",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "UI/UX",
-    "Programador Angola",
-    "Portfólio Dev",
-  ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
-    url: "https://portfolio-joel-silva.vercel.app/",
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
-      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js e TypeScript. Veja meus projetos e trajetória.",
+      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+    url: "https://portfolio-joel-silva.vercel.app",
     siteName: "Joel Silva - Portfólio",
     images: [
       {
         url: "https://portfolio-joel-silva.vercel.app/images/face.png",
         width: 1920,
         height: 1040,
-        alt: "Prévia do portfólio de Joel Silva",
+        alt: "Portfólio de Joel Silva",
       },
     ],
     locale: "pt-PT",
@@ -57,6 +46,31 @@ export const metadata: Metadata = {
       "Portfólio de Joel Silva — Desenvolvedor especializado em Next.js e TypeScript.",
     images: ["https://portfolio-joel-silva.vercel.app/images/face.png"],
   },
+  metadataBase: new URL("https://portfolio-joel-silva.vercel.app"),
+  themeColor: "#ffffff",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
+  authors: [
+    {
+      name: "Joel Silva",
+      url: "https://portfolio-joel-silva.vercel.app",
+    },
+  ],
+  keywords: [
+    "Joel Silva",
+    "Desenvolvedor Full Stack",
+    "Desenvolvedor Frontend",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "UI/UX",
+    "Programador Angola",
+    "Portfólio Dev",
+    "Desenvolvedor Web",
+    "Freelancer Angola",
+  ],
   alternates: {
     canonical: "https://portfolio-joel-silva.vercel.app/",
   },
@@ -80,27 +94,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
-      <body className={`${poppins.variable} ${oxygen.variable}  antialiased`}>
+      <body className={`${poppins.variable} ${oxygen.variable} antialiased`}>
         {children}
 
         <Script
-          id="structured-data-events"
+          id="structured-data-portfolio"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Development",
-              name: "Portfólio de Joel Silva",
+              "@type": "Person",
+              name: "Joel Silva",
               url: "https://portfolio-joel-silva.vercel.app",
-              logo: "https://portfolio-joel-silva.vercel.app/white.png",
-              department: {
-                "@type": "Development",
-                name: "Portfólio de Joel Silva",
-                url: "https://portfolio-joel-silva.vercel.app",
-                description:
-                  "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js e TypeScript. Veja meus projetos e trajetória.",
+              image: "https://portfolio-joel-silva.vercel.app/images/face.png",
+              jobTitle: "Desenvolvedor Full Stack",
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelancer / Projetos Independentes",
               },
+              sameAs: [
+                "https://www.linkedin.com/in/joel-silva",
+                "https://github.com/joel-silva",
+                "https://portfolio-joel-silva.vercel.app",
+              ],
             }),
           }}
         />
