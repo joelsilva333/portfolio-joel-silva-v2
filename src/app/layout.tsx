@@ -107,15 +107,17 @@ export default function RootLayout({
               "@type": "Person",
               name: "Joel Silva",
               url: "https://portfolio-joel-silva.vercel.app",
-              image: "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
+              image:
+                "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
               jobTitle: "Desenvolvedor Full Stack",
               worksFor: {
                 "@type": "Organization",
                 name: "Freelancer / Projetos Independentes",
               },
               sameAs: [
-                "https://www.linkedin.com/in/joel-silva",
-                "https://github.com/joel-silva",
+                "https://www.linkedin.com/in/joel-g-da-silva",
+                "https://instagram.com/joel_germany_",
+                "https://github.com/joelsilva333",
                 "https://portfolio-joel-silva.vercel.app",
               ],
             }),
