@@ -18,19 +18,19 @@ const oxygen = Oxygen({
 export const metadata: Metadata = {
   title: "Joel Silva | Desenvolvedor Full Stack",
   description:
-    "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+    "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interjoel_silvas modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
-      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interjoel_silvas modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
     url: "https://portfolio-joel-silva.vercel.app",
     siteName: "Joel Silva - Portfólio",
     images: [
       {
-        url: "https://portfolio-joel-silva.vercel.app/images/face.png",
+        url: "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
         width: 1920,
         height: 1040,
         alt: "Portfólio de Joel Silva",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
       "Portfólio de Joel Silva — Desenvolvedor especializado em Next.js e TypeScript.",
-    images: ["https://portfolio-joel-silva.vercel.app/images/face.png"],
+    images: ["https://portfolio-joel-silva.vercel.app/images/joel_silva.png"],
   },
   metadataBase: new URL("https://portfolio-joel-silva.vercel.app"),
   themeColor: "#ffffff",
@@ -107,7 +107,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Joel Silva",
               url: "https://portfolio-joel-silva.vercel.app",
-              image: "https://portfolio-joel-silva.vercel.app/images/face.png",
+              image: "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
               jobTitle: "Desenvolvedor Full Stack",
               worksFor: {
                 "@type": "Organization",
