@@ -18,14 +18,14 @@ const oxygen = Oxygen({
 export const metadata: Metadata = {
   title: "Joel Silva | Desenvolvedor Full Stack",
   description:
-    "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interjoel_silvas modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+    "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
-      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interjoel_silvas modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
     url: "https://portfolio-joel-silva.vercel.app",
     siteName: "Joel Silva - Portfólio",
     images: [
