@@ -60,6 +60,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-5.png",
 		],
 		link: "https://anonimo-angola.vercel.app",
+		soonText: "Disponível em breve",
 	},
 	{
 		id: 2,
@@ -76,6 +77,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-3.png",
 		],
 		link: "HTTPs://kuvica.vercel.app",
+		soonText: "Disponível em breve",
 	},
 	{
 		id: 3,
