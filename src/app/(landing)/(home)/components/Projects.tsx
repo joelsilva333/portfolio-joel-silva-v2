@@ -59,7 +59,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-4.png",
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/anonimo-angola-5.png",
 		],
-		link: "https://anonimo-angola.vercel.app",
+		link: "#",
 		soonText: "Disponível em breve",
 	},
 	{
@@ -76,7 +76,7 @@ const projects: ProjectProps[] = [
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-2.mp4",
 			"https://pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev/images/projects/kuvica-3.png",
 		],
-		link: "HTTPs://kuvica.vercel.app",
+		link: "#",
 		soonText: "Disponível em breve",
 	},
 	{
