@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
       "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
-    url: "https://portfolio-joel-silva.vercel.app",
+    url: "https://joelsilva.site",
     siteName: "Joel Silva - Portfólio",
     images: [
       {
-        url: "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
+        url: "https://joelsilva.site/images/joel_silva.png",
         width: 1920,
         height: 1040,
         alt: "Portfólio de Joel Silva",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
       "Portfólio de Joel Silva — Desenvolvedor especializado em Next.js e TypeScript.",
-    images: ["https://portfolio-joel-silva.vercel.app/images/joel_silva.png"],
+    images: ["https://joelsilva.site/images/joel_silva.png"],
   },
-  metadataBase: new URL("https://portfolio-joel-silva.vercel.app"),
+  metadataBase: new URL("https://joelsilva.site"),
   themeColor: "#ffffff",
   viewport: {
     width: "device-width",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Joel Silva",
-      url: "https://portfolio-joel-silva.vercel.app",
+      url: "https://joelsilva.site",
     },
   ],
   keywords: [
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     "Freelancer Angola",
   ],
   alternates: {
-    canonical: "https://portfolio-joel-silva.vercel.app/",
+    canonical: "https://joelsilva.site/",
   },
   robots: {
     index: true,
@@ -106,9 +106,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Joel Silva",
-              url: "https://portfolio-joel-silva.vercel.app",
+              url: "https://joelsilva.site",
               image:
-                "https://portfolio-joel-silva.vercel.app/images/joel_silva.png",
+                "https://joelsilva.site/images/joel_silva.png",
               jobTitle: "Desenvolvedor Full Stack",
               worksFor: {
                 "@type": "Organization",
@@ -118,7 +118,7 @@ export default function RootLayout({
                 "https://www.linkedin.com/in/joel-g-da-silva",
                 "https://instagram.com/joel_germany_",
                 "https://github.com/joelsilva333",
-                "https://portfolio-joel-silva.vercel.app",
+                "https://joelsilva.site",
               ],
             }),
           }}
