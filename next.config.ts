@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "globalsc.ao",
+        pathname: "/**",
+      },
     ],
   },
 };
