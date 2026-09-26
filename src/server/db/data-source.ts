@@ -1,4 +1,5 @@
 import "reflect-metadata"
+import pg from "pg"
 import { DataSource, type ObjectLiteral, type Repository } from "typeorm"
 import {
 	AdminUserEntity,
@@ -16,6 +17,9 @@ export function createDataSource(overrides: { synchronize?: boolean } = {}) {
 
 	return new DataSource({
 		type: "postgres",
+		// Driver passado explicitamente: por omissão o TypeORM faz require("pg") em
+		// runtime, que o build de produção não detecta e deixa de fora do servidor.
+		driver: pg,
 		url: process.env.DATABASE_URL,
 		entities: [ProjectEntity, AdminUserEntity, MessageEntity],
 		synchronize: overrides.synchronize ?? process.env.DB_SYNCHRONIZE === "true",
