@@ -97,8 +97,8 @@ async function ensureDatabase() {
 	url.pathname = "/postgres"
 
 	const client = new Client({ connectionString: url.toString() })
-	await client.connect()
 	try {
+		await client.connect()
 		const { rowCount } = await client.query("SELECT 1 FROM pg_database WHERE datname = $1", [name])
 		if (!rowCount) {
 			await client.query(`CREATE DATABASE "${name.replace(/"/g, '""')}"`)
@@ -106,8 +106,12 @@ async function ensureDatabase() {
 		} else {
 			console.log(`• Base de dados "${name}" já existe`)
 		}
+	} catch (error) {
+		// Serviços alojados (Neon, Supabase, Railway…) já entregam a BD criada e
+		// muitas vezes não deixam ligar à "postgres" nem criar bases: segue em frente.
+		console.warn(`• Não foi possível verificar/criar "${name}" (${(error as Error).message}); a assumir que já existe`)
 	} finally {
-		await client.end()
+		await client.end().catch(() => {})
 	}
 }
 
