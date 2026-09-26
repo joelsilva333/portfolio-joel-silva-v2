@@ -1,19 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // TypeORM e pg carregam drivers dinamicamente: não devem passar pelo bundler.
+  serverExternalPackages: ["typeorm", "pg"],
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "pub-8f5f708a259841eabb66c4c65c2660ea.r2.dev",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "globalsc.ao",
-        pathname: "/**",
-      },
-    ],
+    // As capas e galerias são geridas no painel e podem vir de qualquer domínio HTTPS.
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
 };
 

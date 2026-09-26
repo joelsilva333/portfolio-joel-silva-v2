@@ -1,57 +1,57 @@
-import type { Metadata } from "next";
-import { Poppins, Oxygen } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const oxygen = Oxygen({
+const grotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-oxygen",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-grotesk",
+  display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#060708",
+};
 
 export const metadata: Metadata = {
-  title: "Joel Silva | Desenvolvedor Full Stack",
+  title: {
+    default: "Joel Silva | Desenvolvedor Full Stack",
+    template: "%s | Joel Silva",
+  },
   description:
-    "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
+    "Desenvolvedor Full Stack em Luanda. Crio websites, plataformas e sistemas web com Next.js, React e TypeScript — do design UI/UX ao deploy. Veja projectos como a Mesa Redonda com CEOs e fale comigo.",
+  applicationName: "Joel Silva — Portfólio",
+  creator: "Joel Silva",
   icons: {
     icon: "/favicon.ico",
   },
+  // A imagem de partilha é gerada em app/opengraph-image.tsx (e por projecto em
+  // projectos/[slug]/opengraph-image.tsx); o Next injecta og:image e twitter:image.
   openGraph: {
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
-      "Portfólio de Joel Silva — Desenvolvedor Full Stack especializado em Next.js, TypeScript e interfaces modernas. Explore meus projetos, habilidades e trajetória no desenvolvimento web.",
-    url: "https://joelsilva.site",
-    siteName: "Joel Silva - Portfólio",
-    images: [
-      {
-        url: "https://joelsilva.site/images/joel_silva.png",
-        width: 1920,
-        height: 1040,
-        alt: "Portfólio de Joel Silva",
-      },
-    ],
-    locale: "pt-PT",
+      "Websites, plataformas e sistemas web feitos de ponta a ponta — do design UI/UX ao deploy. Veja os meus projectos e vamos conversar.",
+    url: "/",
+    siteName: "Joel Silva — Portfólio",
+    locale: "pt_PT",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Joel Silva | Desenvolvedor Full Stack",
     description:
-      "Portfólio de Joel Silva — Desenvolvedor especializado em Next.js e TypeScript.",
-    images: ["https://joelsilva.site/images/joel_silva.png"],
+      "Websites, plataformas e sistemas web feitos de ponta a ponta — do design UI/UX ao deploy.",
   },
-  metadataBase: new URL("https://joelsilva.site"),
-  themeColor: "#ffffff",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://joelsilva.site"),
   authors: [
     {
       name: "Joel Silva",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     "Freelancer Angola",
   ],
   alternates: {
-    canonical: "https://joelsilva.site/",
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -94,7 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
-      <body className={`${poppins.variable} ${oxygen.variable} antialiased`}>
+      <body className={`${inter.variable} ${grotesk.variable} antialiased`}>
         {children}
 
         <Script

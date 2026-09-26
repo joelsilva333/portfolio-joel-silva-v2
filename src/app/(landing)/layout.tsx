@@ -1,29 +1,14 @@
-"use client"
-
 import Header from "../ui/Header"
-import { motion, AnimatePresence } from "framer-motion"
-import { usePathname } from "next/navigation"
 import Footer from "../ui/Footer"
+import MobileContactBar from "@/components/MobileContactBar"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-	const pathname = usePathname()
-
 	return (
-		<div className="min-h-screen flex flex-col overflow-hidden">
+		<div id="top" className="relative flex min-h-screen flex-col overflow-x-clip">
 			<Header />
-			<AnimatePresence mode="wait">
-				<motion.main
-					key={pathname}
-					initial={{ x: -50, opacity: 0 }}
-					animate={{ x: 0, opacity: 1 }}
-					exit={{ x: 50, opacity: 0 }}
-					transition={{ duration: 0.6, ease: "easeOut" }}
-					className="flex-1"
-				>
-					{children}
-				</motion.main>
-			</AnimatePresence>
+			<main className="flex-1">{children}</main>
 			<Footer />
+			<MobileContactBar />
 		</div>
 	)
 }

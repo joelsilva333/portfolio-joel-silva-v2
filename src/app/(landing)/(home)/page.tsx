@@ -1,36 +1,41 @@
 import Hero from "./components/Hero"
 import AboutMe from "./components/AboutMe"
 import Projects from "./components/Projects"
-import Image from "next/image"
 import Specialties from "./components/Specialties"
+import TechMarquee from "./components/TechMarquee"
 import FAQ from "./components/FAQ"
-import FinalCTA from "./components/FinalCTA"
+import Experience from "./components/Experience"
+import Contact from "@/components/Contact"
+import { listPublishedProjects } from "@/server/projects"
 
-export default function Home() {
-	const positions = ["top-[10%] left-0 rotate-180", "bottom-[0%] right-0"]
+// Os projectos vêm da base de dados e mudam a partir do painel.
+export const dynamic = "force-dynamic"
+
+export default async function Home() {
+	const projects = await listPublishedProjects()
 
 	return (
-		<div className="min-h-screen flex flex-col items-center relative justify-center gap-16">
-			{positions.map((position, index) => (
-				<Image
-					key={index}
-					src="/images/bg/circle.png"
-					alt="Circle Decoration"
-					width={1000}
-					height={1000}
-					className={`absolute  ${position}  animate-pulse z-0`}
-				/>
-			))}
-			<Hero />
+		<>
+			<Hero projectCount={projects.length} />
+			<TechMarquee />
 			<AboutMe />
-			<hr className="w-full border-light/15 max-w-7xl" />
+			<Divider />
 			<Specialties />
-			<hr className="w-full border-light/15 max-w-7xl" />
-			<Projects />
-			<hr className="w-full border-light/15 max-w-7xl" />
+			<Divider />
+			<Projects projects={projects} />
+			<Divider />
+			<Experience />
+			<Divider />
 			<FAQ />
-			<FinalCTA />
-			<hr className="w-full border-light/15 max-w-7xl" />
+			<Contact index="06" />
+		</>
+	)
+}
+
+function Divider() {
+	return (
+		<div className="container-page">
+			<hr className="border-white/6" />
 		</div>
 	)
 }

@@ -2,69 +2,201 @@
 
 @theme {
 	--color-primary: #060708;
+	--color-surface: #0c0e11;
+	--color-surface-2: #12151a;
 	--color-light: #e9e7e5;
+	--color-muted: #8b8f96;
 	--color-accent: #0070b6;
-	--font-oxygen: "Oxygen";
+	--color-accent-bright: #3aa6ea;
+	--color-success: #34d399;
+	--color-danger: #f87171;
+
+	--font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+	--font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+
+	--animate-marquee: marquee 40s linear infinite;
+	--animate-float: float 6s ease-in-out infinite;
+
+	@keyframes marquee {
+		from { transform: translateX(0); }
+		to { transform: translateX(-50%); }
+	}
+	@keyframes float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+	}
 }
 
-:root {
-	--font-poppins: "Poppins", sans-serif;
-	--font-oxygen: "Oxygen", sans-serif;
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
+	color-scheme: dark;
 }
 
 body {
 	background-color: var(--color-primary);
 	color: var(--color-light);
-	font-family: var(--font-poppins);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
 }
 
-.btn-navigation {
-	@apply bg-light w-24 px-2 py-2 text-sm rounded-full text-primary flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-light hover:text-light transition-all duration-300 cursor-pointer;
+::selection {
+	background: var(--color-accent);
+	color: white;
 }
 
-.btn-navigation-v2 {
-	@apply bg-accent w-10 h-10 text-sm rounded-full text-light flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-accent hover:text-accent transition-all duration-300 cursor-pointer;
+:focus-visible {
+	outline: 2px solid var(--color-accent-bright);
+	outline-offset: 3px;
 }
 
-.btn-primary {
-	@apply bg-light px-6 py-2 text-sm text-center rounded-full text-primary lg:flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-light hover:text-light transition-all duration-300 cursor-pointer;
+@layer components {
+	/* Contentor padrão das secções */
+	.container-page {
+		@apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+	}
+
+	/* Espaçamento vertical das secções: compacto em mobile para reduzir o scroll */
+	.section {
+		@apply py-12 sm:py-24 lg:py-32;
+	}
+
+	/* Rótulo pequeno por cima dos títulos: "01 — Sobre" */
+	.eyebrow {
+		@apply inline-flex items-center gap-3 font-display text-xs font-medium uppercase tracking-[0.25em] text-accent-bright;
+	}
+	.eyebrow::before {
+		content: "";
+		@apply h-px w-8 bg-accent-bright/60;
+	}
+
+	.heading-xl {
+		@apply font-display text-[2.5rem] leading-[1.04] font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl xl:text-8xl;
+	}
+	.heading-lg {
+		@apply font-display text-[1.75rem] leading-tight font-semibold tracking-tight text-balance sm:text-4xl lg:text-5xl;
+	}
+
+	.text-gradient {
+		@apply bg-linear-to-r from-accent-bright via-sky-300 to-light bg-clip-text text-transparent;
+	}
+
+	.card {
+		@apply rounded-3xl border border-white/7 bg-white/2.5 backdrop-blur-sm;
+	}
+
+	.btn,
+	.btn-primary,
+	.btn-light,
+	.btn-ghost {
+		@apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap transition-all duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+	}
+	.btn-primary {
+		@apply bg-accent text-white shadow-[0_0_0_1px_rgba(58,166,234,0.4),0_10px_40px_-10px_rgba(0,112,182,0.8)] hover:bg-accent-bright hover:shadow-[0_0_0_1px_rgba(58,166,234,0.6),0_10px_50px_-8px_rgba(58,166,234,0.9)];
+	}
+	.btn-light {
+		@apply bg-light text-primary hover:bg-white;
+	}
+	.btn-ghost {
+		@apply border border-white/15 text-light hover:border-white/40 hover:bg-white/5;
+	}
+
+	.chip {
+		@apply inline-flex items-center rounded-full border border-white/10 bg-white/4 px-3 py-1 text-xs text-light/80;
+	}
 }
 
-.btn-secondary {
-	@apply bg-accent px-6 py-2 text-sm rounded-full text-light lg:flex items-center justify-center gap-2 font-medium hover:bg-transparent border border-accent hover:border-light transition-all duration-300 cursor-pointer;
+@layer utilities {
+	/* Grelha subtil de fundo */
+	.bg-grid {
+		background-image:
+			linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+			linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+		background-size: 64px 64px;
+	}
+	.mask-fade-b {
+		mask-image: linear-gradient(to bottom, black 40%, transparent);
+	}
+	.mask-fade-x {
+		mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+	}
 }
 
-.btn-tertiary {
-	@apply flex items-center gap-2 text-sm border px-5 py-2 rounded-full border-light/50 group-hover:border-light hover:bg-light hover:text-primary transition-all duration-300 cursor-pointer;
+/*
+ * Carrossel de deslizar só em mobile: os itens ficam lado a lado com scroll-snap,
+ * em vez de empilhados (menos scroll vertical). Acima de 768px o layout é o da página.
+ */
+@media (max-width: 767px) {
+	.mobile-rail {
+		display: flex;
+		gap: 0.875rem;
+		margin-inline: -1.25rem;
+		padding-inline: 1.25rem;
+		padding-bottom: 0.25rem;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scroll-padding-inline: 1.25rem;
+		overscroll-behavior-x: contain;
+		scrollbar-width: none;
+	}
+	.mobile-rail::-webkit-scrollbar {
+		display: none;
+	}
+	.mobile-rail > * {
+		flex: 0 0 84%;
+		scroll-snap-align: start;
+	}
 }
 
+/* Faixa horizontal de chips (filtros, tipos de projecto) sem barra visível */
+.chip-rail {
+	scrollbar-width: none;
+}
+.chip-rail::-webkit-scrollbar {
+	display: none;
+}
+
+/* Swiper */
 .swiper-pagination-bullet {
-	background: #888 !important;
+	background: #555 !important;
 	opacity: 1 !important;
 }
-
 .swiper-pagination-bullet-active {
-	background: #0070b6 !important;
+	background: var(--color-accent-bright) !important;
+	width: 20px !important;
+	border-radius: 999px !important;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-	color: #060708 !important;
-	width: 60px !important;
-	padding: 6px 2px !important;
-	&:hover {
-		color: #e9e7e5 !important;
-	}
+/* Lightbox da galeria */
+dialog.lightbox {
+	max-width: 100vw;
+	max-height: 100dvh;
+	width: 100vw;
+	height: 100dvh;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
 }
-
-.btn-navigation-v2.swiper-button-disabled {
-	opacity: 0.3;
-	cursor: not-allowed;
-	&:hover {
-		@apply bg-accent text-light;
-	}
+dialog.lightbox::backdrop {
+	background: rgb(3 4 5 / 0.92);
+	backdrop-filter: blur(8px);
 }
 
 video::-webkit-media-controls {
 	display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }

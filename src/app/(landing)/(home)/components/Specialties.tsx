@@ -1,152 +1,98 @@
-"use client"
+import { Code, Database, Fingerprint, GitBranch, Server } from "lucide-react"
+import Reveal from "@/components/Reveal"
+import SectionHeading from "@/components/SectionHeading"
+import SwipeHint from "@/components/SwipeHint"
+import { cn } from "@/lib/utils"
 
-import {
-	Fingerprint,
-	Code,
-	Database,
-	GitBranch,
-	Server,
-	MoveRight,
-} from "lucide-react"
-import Link from "next/link"
-import { Autoplay, Pagination } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css"
-import "swiper/css/pagination"
-import { motion } from "framer-motion"
-
-interface Specialty {
-	icon: React.ElementType
-	title: string
-	description: string
-}
-
-const specialties: Specialty[] = [
+const specialties = [
 	{
 		icon: Fingerprint,
 		title: "Design de Interfaces e UX",
 		description:
-			"Com mais de 3 anos explorando o Figma e outras ferramentas, aprendi a transformar ideias em interfaces simples, bonitas e agradáveis de usar.",
+			"Mais de 3 anos no Figma a transformar ideias em interfaces simples, bonitas e agradáveis de usar.",
+		tags: ["Figma", "Design Systems", "Prototipagem"],
+		span: "lg:col-span-2",
 	},
 	{
 		icon: Code,
 		title: "Desenvolvimento Frontend",
 		description:
-			"Adoro dar vida às telas com React, Next.js e TypeScript, criando experiências modernas, rápidas e que funcionam bem em qualquer dispositivo.",
+			"React, Next.js e TypeScript para experiências modernas, rápidas e que funcionam em qualquer dispositivo.",
+		tags: ["Next.js", "React", "TypeScript"],
+		span: "",
 	},
 	{
 		icon: Server,
 		title: "Desenvolvimento Backend",
 		description:
-			"Gosto de estruturar APIs em Node.js e Express, garantindo que o que acontece por trás das telas seja seguro, organizado e escalável.",
+			"APIs em Node.js e Express seguras, organizadas e prontas para crescer.",
+		tags: ["Node.js", "Express", "REST"],
+		span: "",
 	},
 	{
 		icon: Database,
-		title: "Bancos de Dados",
+		title: "Bases de Dados",
 		description:
-			"Já trabalhei bastante com PostgreSQL e MySQL, modelando dados de forma lógica e deixando as consultas mais leves e eficientes.",
+			"Modelação lógica em PostgreSQL e MySQL, com consultas leves e eficientes.",
+		tags: ["PostgreSQL", "MySQL", "TypeORM"],
+		span: "",
 	},
 	{
 		icon: GitBranch,
 		title: "Versionamento & Colaboração",
 		description:
-			"Uso Git e GitHub no dia a dia para manter os projetos organizados, registrar cada passo e facilitar quando é hora de trabalhar em equipe.",
+			"Git e GitHub no dia a dia para manter cada passo registado e facilitar o trabalho em equipa.",
+		tags: ["Git", "GitHub", "CI"],
+		span: "",
 	},
 ]
 
-const container = {
-	hidden: { opacity: 0, y: 100 },
-	show: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-			when: "beforeChildren",
-			staggerChildren: 0.4,
-		},
-	},
-}
-
-const item = {
-	hidden: { opacity: 0, y: 100 },
-	show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-}
-
 export default function Specialties() {
 	return (
-		<motion.div
-			variants={container}
-			initial="hidden"
-			whileInView="show"
-			id="specialities"
-			viewport={{ once: true, amount: 0.2 }}
-			className="max-w-7xl w-full z-10"
-		>
-			<motion.div
-				variants={item}
-				className="w-full flex justify-between max-lg:justify-center items-center"
-			>
-				<h1 className="text-4xl font-semibold max-lg:text-3xl max-md:text-2xl">
-					{"ESPECIALIDADES"}
-				</h1>
+		<section id="specialities" className="container-page section flex flex-col gap-8 sm:gap-14">
+			<SectionHeading
+				index="02"
+				eyebrow="Especialidades"
+				title={
+					<>
+						Tudo o que um produto precisa, <span className="text-muted">num só lugar.</span>
+					</>
+				}
+				description="Da primeira ideia ao produto em produção: design, frontend, backend e dados a trabalhar em conjunto."
+			/>
 
-				<Link
-					href="https://api.whatsapp.com/send?phone=244946506875&text=Olá!%20Quero%20um%20website%20para%20mim!"
-					target="_blank"
-					className="btn-secondary w-fit flex items-center gap-2 max-lg:hidden"
-				>
-					CONTACTAR-ME <MoveRight className="w-6" />
-				</Link>
-			</motion.div>
-
-			<motion.ul variants={item} className="w-full flex gap-8">
-				<Swiper
-					modules={[Pagination, Autoplay]}
-					slidesPerView={"auto"}
-					spaceBetween={50}
-					pagination={{
-						clickable: true,
-					}}
-					autoplay={{
-						disableOnInteraction: true,
-						delay: 5000,
-					}}
-					speed={1000}
-					breakpoints={{
-						0: {
-							spaceBetween: 10,
-							slidesPerView: 1,
-						},
-						1024: {
-							spaceBetween: 50,
-							slidesPerView: 3,
-						},
-					}}
-					className="w-full z-50 pt-8"
-				>
-					{specialties.map((speciality, index) => (
-						<SwiperSlide
-							key={index}
-							className="py-12 max-lg:px-5 w-full flex justify-center items-center"
-						>
-							<motion.li
-								variants={item}
-								className="lg:max-w-sm w-full flex flex-col h-70 items-center gap-5 justify-center px-8 py-5 text-center bg-light/5 hover:scale-105 duration-300 transition-all rounded-2xl backdrop-blur-md"
-							>
-								<speciality.icon className="text-accent w-12 h-12" />
-								<div className="flex flex-col gap-2">
-									<h1 className="font-semibold text-lg max-lg:text-base">
-										{speciality.title.toUpperCase()}
-									</h1>
-									<p className="text-sm text-light/70">
-										{speciality.description}
-									</p>
-								</div>
-							</motion.li>
-						</SwiperSlide>
-					))}
-				</Swiper>
-			</motion.ul>
-		</motion.div>
+			<Reveal className="mobile-rail md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3">
+				{specialties.map(({ icon: Icon, title, description, tags, span }, i) => (
+					<article
+						key={title}
+						className={cn(
+							"card group relative flex h-full flex-col gap-5 overflow-hidden p-6 transition-colors duration-500 hover:border-white/15 sm:gap-6 sm:p-8",
+							span,
+							i === 4 && "md:col-span-2 lg:col-span-1",
+						)}
+					>
+						<div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-accent/0 blur-3xl transition-colors duration-700 group-hover:bg-accent/25" />
+						<div className="flex items-start justify-between">
+							<span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+								<Icon className="h-5 w-5 text-accent-bright" />
+							</span>
+							<span className="font-display text-sm text-muted">0{i + 1}</span>
+						</div>
+						<div className="flex flex-col gap-3">
+							<h3 className="font-display text-xl font-semibold">{title}</h3>
+							<p className="text-sm leading-relaxed text-muted">{description}</p>
+						</div>
+						<ul className="mt-auto flex flex-wrap gap-2">
+							{tags.map((t) => (
+								<li key={t} className="chip">
+									{t}
+								</li>
+							))}
+						</ul>
+					</article>
+				))}
+			</Reveal>
+			<SwipeHint count={specialties.length} label="especialidades" />
+		</section>
 	)
 }
